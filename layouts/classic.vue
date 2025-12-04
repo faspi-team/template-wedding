@@ -36,6 +36,7 @@ useHead({
     link: [
         { rel: 'icon', href: '/favicon.svg', type: 'image/x-icon' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap' },
         { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.15.4/css/all.css' },        
         { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css' },
         { rel: 'stylesheet', href: '/assets/layouts/classic/lib/animate/animate.min.css' },

@@ -9,18 +9,43 @@
       "groom_description": "Un hombre apasionado por la vida y el amor",
       "bride_name": "Mayra",
       "bride_description": "Una mujer llena de alegría y bondad",
-      "event_date": "2025-03-21T18:00:00Z",
+      "event_date": "2026-03-21T18:00:00Z",
       "venue": "Jardín Botánico, Calle Principal 123",
       "description": "Te invitamos a celebrar nuestro día más especial. Será un honor compartir este momento contigo.",
       "whatsapp_number": "1234567890",
       "google_maps_url": "https://maps.google.com/?q=Jardín+Botánico",
+      "bible_verse": "Ya no son dos, sino uno solo. Por tanto, lo que Dios ha unido, que no lo separe el hombre",
+      "bible_reference": "Mateo 19:6",
+      "invitation_message": "Con el amor que nos une, la bendición de Dios y el apoyo de nuestros padres, te invitamos a celebrar el día más especial de nuestras vidas.",
+      "religious_ceremony": {
+        "location": "Iglesia San Pedro",
+        "address": "Calle Tarija y Av. América",
+        "maps_url": "https://maps.google.com/?q=Iglesia+San+Pedro"
+      },
+      "reception": {
+        "location": "Jardín Padilla",
+        "address": "Calle Sucre y 16 de Julio",
+        "maps_url": "https://maps.google.com/?q=Jardín+Padilla"
+      },
+      "dress_code": "Formal",
+      "gifts": {
+        "transfer": {
+          "qr_code": "/assets/images/default-invitation.svg",
+          "info": "Banco: Banco Nacional\nCuenta: 1234567890\nTitular: Mayra & Angello"
+        },
+        "registry": {
+          "url": "https://example.com/registry",
+          "description": "Nuestra lista de regalos"
+        }
+      },
+      "no_children_policy": "Amamos a los niños, pero por razones de seguridad, nuestra boda será solo para adultos.",
       "unique_url": "inv-1234567890",
       "is_active": true,
       "photo_url": "/assets/images/default-invitation.svg",
-      "primary_color": "#fd5d5d",
-      "secondary_color": "#BBBD98",
-      "background_color": "#ffffff",
-      "text_color": "#2F2F2F",
+      "primary_color": "#8C7549",
+      "secondary_color": "#D9D0C1",
+      "background_color": "#F0F1F2",
+      "text_color": "#5D5639",
       "carousel_images": [
         "/assets/layouts/classic/img/mayra-angello/img-1.jpg",
         "/assets/layouts/classic/img/mayra-angello/img-2.jpg",
@@ -59,38 +84,66 @@
       "wedding_timeline": [
         {
           "id": "timeline-1",
-          "title": "Ceremonia",
-          "time": "18:00",
-          "description": "Ceremonia civil en el jardín principal",
-          "icon": "fa-heart"
+          "title": "CEREMONIA RELIGIOSA",
+          "time": "11:00 AM",
+          "description": "Ceremonia religiosa",
+          "icon": "fa-church"
         },
         {
           "id": "timeline-2",
-          "title": "Cóctel",
-          "time": "19:00",
-          "description": "Brindis y aperitivos",
-          "icon": "fa-wine-glass"
+          "title": "SESIÓN DE FOTOS",
+          "time": "12:00 PM",
+          "description": "Sesión de fotos",
+          "icon": "fa-camera"
         },
         {
           "id": "timeline-3",
-          "title": "Banquete",
-          "time": "20:00",
-          "description": "Cena y celebración",
+          "title": "CENA",
+          "time": "1:00 PM",
+          "description": "Cena",
           "icon": "fa-utensils"
         },
         {
           "id": "timeline-4",
-          "title": "Baile",
-          "time": "22:00",
-          "description": "Música y baile hasta el amanecer",
+          "title": "TORTA",
+          "time": "3:00 PM",
+          "description": "Corte de torta",
+          "icon": "fa-birthday-cake"
+        },
+        {
+          "id": "timeline-5",
+          "title": "BRINDIS",
+          "time": "3:30 PM",
+          "description": "Brindis",
+          "icon": "fa-wine-glass"
+        },
+        {
+          "id": "timeline-6",
+          "title": "PRIMER BAILE",
+          "time": "5:00 PM",
+          "description": "Primer baile",
           "icon": "fa-music"
+        },
+        {
+          "id": "timeline-7",
+          "title": "BOCADITOS",
+          "time": "7:00 PM",
+          "description": "Bocaditos",
+          "icon": "fa-drumstick-bite"
+        },
+        {
+          "id": "timeline-8",
+          "title": "DESPEDIDA",
+          "time": "11:00 PM",
+          "description": "Despedida",
+          "icon": "fa-star"
         }
       ],
       "music": {
         "id": "music-1",
-        "name": "A Thousand Years",
+        "name": "Tu poeta - Alex Campos",
         "type": "predefined",
-        "url": "/assets/music/a-thousand-years.mp3",
+        "url": "/assets/music/tu-poeta-alex-campos.mp3",
         "created_at": "2025-01-01T00:00:00Z",
         "updated_at": "2025-01-01T00:00:00Z"
       },

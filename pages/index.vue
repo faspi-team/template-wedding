@@ -160,64 +160,10 @@
           </div>
           <audio ref="audioPlayer" :src="invitation.music.url" loop preload="metadata" @loadeddata="onAudioLoaded"
             @play="isPlaying = true" @pause="isPlaying = false" @ended="isPlaying = false" @error="onAudioError" />
-          </div>
         </div>
-        </div>
-
-      <div class="container-fluid position-relative py-5" id="weddingAbout">
-        <div class="position-absolute" style="top: -35px; right: 0;">
-          <img src="/assets/layouts/classic/img/tamp-bg-1.png" class="img-fluid" alt="">
-        </div>
-        <div class="position-absolute" style="top: -10px; left: 0; transform: rotate(150deg);">
-          <img src="/assets/layouts/classic/img/tamp-bg-1.png" class="img-fluid" alt="">
         </div>
         </div>
 
-      <!-- Story Start -->
-      <div v-if="storyEvents && storyEvents.length > 0" class="container-fluid story position-relative py-5"
-        id="weddingStory">
-        <div class="position-absolute" style="top: -35px; right: 0;">
-          <img src="/assets/layouts/classic/img/tamp-bg-1.png" class="img-fluid" alt="">
-        </div>
-        <div class="position-absolute" style="top: -15px; left: 0; transform: rotate(150deg);">
-          <img src="/assets/layouts/classic/img/tamp-bg-1.png" class="img-fluid" alt="">
-        </div>
-        <div class="container position-relative py-5">
-          <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
-            <h5 class="text-uppercase fw-bold mb-4 elegant-heading" :style="{ color: primaryColor, fontSize: '1rem', letterSpacing: '3px' }">Historia</h5>
-            <h1 class="display-4 elegant-heading" :style="{ color: textColor, fontSize: '2.5rem' }">Nuestra historia de amor</h1>
-          </div>
-          <div class="story-timeline">
-            <div v-for="(event, index) in storyEvents" :key="event.id" class="row wow fadeInUp"
-              :class="{ 'flex-column-reverse flex-md-row': index % 2 === 1 }" :data-wow-delay="`${0.4 + index * 0.1}s`">
-              <div v-if="index % 2 === 0" class="col-md-6 text-end border-0 border-top border-end border-secondary p-4">
-                <div class="d-inline-flex align-items-center h-100">
-                  <img :src="event.image || '/assets/layouts/classic/img/story-4.jpg'" class="img-fluid w-100 img-border"
-                    :alt="event.title">
-                </div>
-              </div>
-              <div class="col-md-6 border-top border-secondary p-4"
-                :class="index % 2 === 0 ? 'border-start pe-0' : 'text-end border-end ps-0'">
-                <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4">
-                  <h4 class="mb-2" :style="{ color: invitation.text_color || textColor }">{{ event.title }}</h4>
-                  <p class="text-uppercase mb-2" :style="{ color: primaryColor, letterSpacing: '3px' }">
-                    {{ formatStoryDate(event.date) }}
-                  </p>
-                  <p class="m-0 fs-5" :style="{ color: invitation.text_color || textColor }">{{ event.description }}</p>
-                </div>
-              </div>
-              <div v-if="index % 2 === 1" class="col-md-6 border-start border-top border-secondary p-4">
-                <div class="d-inline-flex align-items-center h-100">
-                  <img :src="event.image || '/assets/layouts/classic/img/story-4.jpg'" class="img-fluid w-100 img-border"
-                    :alt="event.title">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Story End -->
-  
       <!--- Wedding Date -->
       <div class="container-fluid wedding-date-bg position-relative py-5 section-bg">
         <div class="position-absolute leaf-decoration" style="top: 50px; right: 5%; transform: rotate(30deg);"><i class="fas fa-leaf"></i></div>
@@ -267,49 +213,39 @@
       <!-- Wedding Date -->
   
       <!-- Wedding Timeline start -->
-      <div class="container-fluid wedding-timeline bg-secondary position-relative overflow-hidden py-5"
+      <div class="container-fluid wedding-timeline position-relative overflow-hidden py-5 section-bg"
         id="weddingTimeline">
-        <div class="position-absolute" style="top: 50%; left: -100px; transform: translateY(-50%); opacity: 0.5;">
-          <img src="/assets/layouts/classic/img/wedding-bg.png" class="img-fluid" alt="">
-        </div>
-        <div class="position-absolute"
-          style="top: 50%; right: -160px; transform: translateY(-50%); opacity: 0.5; rotate: 335deg;">
-          <img src="/assets/layouts/classic/img/wedding-bg.png" class="img-fluid" alt="">
-        </div>
+        <div class="position-absolute leaf-decoration" style="top: 30px; left: 8%; transform: rotate(-25deg);"><i class="fas fa-leaf"></i></div>
+        <div class="position-absolute leaf-decoration" style="bottom: 40px; right: 10%; transform: rotate(55deg);"><i class="fas fa-leaf"></i></div>
         <div class="container py-5">
           <div class="text-center mb-5">
-            <h1 class="display-4 text-white mb-2 elegant-heading" style="font-size: 2.5rem;">ITINERARIO DE ACTIVIDADES</h1>
-            <p class="text-white-50 elegant-body" style="font-size: 1.2rem;">Planificación de la boda</p>
-          </div>
+            <h1 class="display-4 mb-2 elegant-heading" :style="{ color: primaryColor, fontSize: '2.8rem', fontWeight: '500' }">ITINERARIO DE ACTIVIDADES</h1>
+            <p class="elegant-body" :style="{ color: textColor, fontSize: '1.1rem', opacity: '0.8' }">Planificación de la boda</p>
+        </div>
           <div class="position-relative wedding-content">
-            <div v-if="weddingTimeline.length > 0" class="row g-3 justify-content-center">
-              <div v-for="(event, index) in weddingTimeline" :key="event.id" class="col-12 col-md-6 col-lg-4">
-                <div class="border rounded p-4 h-100 wow fadeIn" :data-wow-delay="`${0.1 + index * 0.1}s`" :style="{ borderStyle: 'double', border: `5px solid ${primaryColor}40`, backgroundColor: 'white', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }">
-                  <div class="d-flex align-items-center mb-3">
-                    <div class="me-3">
-                      <i :class="`fas ${event.icon || 'fa-calendar'} fa-2x`" :style="{ color: primaryColor }"></i>
-                    </div>
-                    <div class="flex-grow-1">
-                      <p class="mb-1 fw-bold" :style="{ color: primaryColor, fontSize: '1.1rem' }">{{ event.time }}</p>
-                      <h4 class="mb-0" :style="{ color: textColor, fontSize: '1rem' }">{{ event.title }}</h4>
-                    </div>
+            <div v-if="weddingTimeline.length > 0" class="timeline-container">
+              <div class="timeline-line"></div>
+              <div v-for="(event, index) in weddingTimeline" :key="event.id" 
+                   class="timeline-item wow fadeInUp" 
+                   :class="{ 'timeline-item-left': index % 2 === 0, 'timeline-item-right': index % 2 === 1 }"
+                   :data-wow-delay="`${0.1 + index * 0.1}s`">
+                <div class="timeline-dot">
+                  <i :class="`fas ${event.icon || 'fa-calendar'}`"></i>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-text">
+                    <div class="timeline-time" :style="{ color: textColor }">{{ event.time }}</div>
+                    <h3 class="timeline-title elegant-heading" :style="{ color: textColor }">{{ event.title }}</h3>
                   </div>
-                  <p v-if="event.description" class="mb-0 small" :style="{ color: textColor }">{{ event.description }}</p>
                 </div>
               </div>
             </div>
             <div v-else class="text-center py-5">
               <div class="mb-4">
-                <i class="fas fa-calendar text-primary fa-4x"></i>
+                <i class="fas fa-calendar" :style="{ color: primaryColor, fontSize: '4rem' }"></i>
               </div>
-              <h3 class="text-white">Planificación de la boda próximamente</h3>
-              <p class="text-white-50">Los detalles del cronograma se publicarán pronto</p>
-            </div>
-            <div class="position-absolute heart-circle " style="bottom: 0; left: -18px;">
-              <div class="border border-2 border-primary rounded-circle p-1 bg-secondary"></div>
-            </div>
-            <div class="position-absolute heart-circle" style="top: 18px; right: -17px;">
-              <div class="border border-2 border-primary rounded-circle p-1 bg-secondary"></div>
+              <h3 class="elegant-heading" :style="{ color: textColor }">Planificación de la boda próximamente</h3>
+              <p class="elegant-body" :style="{ color: textColor, opacity: '0.7' }">Los detalles del cronograma se publicarán pronto</p>
             </div>
           </div>
         </div>
@@ -362,54 +298,6 @@
           </div>
         </div>
 
-      <!-- Gallery Start -->
-      <div class="container-fluid gallery position-relative py-5" id="weddingGallery">
-        <div class="position-absolute" style="top: -95px; right: 0;">
-          <img src="/assets/layouts/classic/img/tamp-bg-1.png" class="img-fluid" alt="">
-        </div>
-        <div class="position-absolute" style="top: -80px; left: 0; transform: rotate(150deg);">
-          <img src="/assets/layouts/classic/img/tamp-bg-1.png" class="img-fluid" alt="">
-          </div>
-        <div class="container position-relative py-5">
-          <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-            <h1 class="display-2 text-dark">Galería de Fotos</h1>
-        </div>
-          <div class="row g-4">
-            <template v-if="galleryPhotos.length > 0">
-              <div v-for="(photo, index) in galleryPhotos" :key="photo.id" class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp"
-                :data-wow-delay="`${0.2 + (index * 0.2)}s`">
-                <div class="gallery-item">
-                  <div class="gallery-img">
-                    <img class="img-fluid w-100" :src="photo.image_url" :alt="photo.title || 'Foto de la galería'">
-                    <div class="hover-style"></div>
-                    <div class="search-icon">
-                      <a :href="photo.image_url" :data-lightbox="`Gallery-${photo.id}`" class="my-auto">
-                        <i class="fas fa-plus btn-primary btn-primary-outline-0 p-3"></i>
-                      </a>
-          </div>
-                  </div>
-                  <div class="gallery-overlay bg-light border-secondary border-top-0 p-4" style="border-style: double;">
-                    <h5>{{ photo.title || 'Foto de la boda' }}</h5>
-                    <p class="text-dark mb-0">{{ photo.description || formatDate(invitation.event_date) }}</p>
-                  </div>
-                </div>
-              </div>
-            </template>
-            <!-- Mensaje cuando no hay fotos -->
-            <template v-else>
-              <div class="col-12 text-center">
-                <div class="py-5">
-                  <i class="fas fa-images fa-3x mb-3" :style="{ color: primaryColor }"></i>
-                  <h4 class="mb-3" :style="{ color: textColor }">Galería de Fotos</h4>
-                  <p class="text-muted">Las fotos de nuestra boda aparecerán aquí pronto.</p>
-                </div>
-              </div>
-            </template>
-          </div>
-        </div>
-      </div>
-      <!-- Gallery end -->
-
       <!-- Dress Code Section -->
       <div v-if="invitation.dress_code" class="container-fluid position-relative py-5 section-bg">
         <div class="position-absolute leaf-decoration" style="top: 25px; right: 12%; transform: rotate(35deg);"><i class="fas fa-leaf"></i></div>
@@ -421,10 +309,10 @@
               <div class="d-flex justify-content-center gap-4">
                 <i class="fas fa-user-tie fa-3x" :style="{ color: primaryColor }"></i>
                 <i class="fas fa-female fa-3x" :style="{ color: primaryColor }"></i>
-            </div>
-            </div>
+        </div>
           </div>
-            </div>
+        </div>
+          </div>
           </div>
 
       <!-- Gift Suggestions Section -->
@@ -447,10 +335,10 @@
                   <h4 class="mb-3 elegant-heading" :style="{ color: textColor, fontSize: '1.3rem' }">TRANSFERENCIA</h4>
                   <div v-if="invitation.gifts.transfer.qr_code" class="mb-3">
                     <img :src="invitation.gifts.transfer.qr_code" alt="QR Code" class="img-fluid" style="max-width: 200px;">
-                  </div>
+            </div>
                   <div v-if="invitation.gifts.transfer.info" class="small" :style="{ color: textColor }">
                     <p v-for="(line, idx) in invitation.gifts.transfer.info.split('\n')" :key="idx" class="mb-1">{{ line }}</p>
-                  </div>
+          </div>
                 </div>
               </div>
               <!-- Gift Registry -->
@@ -652,7 +540,7 @@
     font-weight: 600;
     letter-spacing: 1px;
   }
-  
+
   .elegant-heading {
     font-family: 'Playfair Display', serif;
     font-weight: 500;
@@ -713,6 +601,204 @@
   .elegant-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Timeline Styles */
+  .timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+  }
+  
+  .timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--text-color);
+    opacity: 0.3;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    min-height: 60px;
+    z-index: 2;
+  }
+  
+  .timeline-item-left {
+    flex-direction: row;
+  }
+  
+  .timeline-item-right {
+    flex-direction: row-reverse;
+  }
+  
+  .timeline-dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-color);
+  }
+  
+  .timeline-dot i {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+  }
+  
+  .timeline-item:hover .timeline-dot i {
+    color: var(--primary-color);
+    transform: scale(1.2);
+  }
+  
+  .timeline-content {
+    flex: 1;
+    max-width: calc(50% - 40px);
+  }
+  
+  .timeline-item-left .timeline-content {
+    text-align: right;
+    padding-right: 1.5rem;
+  }
+  
+  .timeline-item-right .timeline-content {
+    text-align: left;
+    padding-left: 1.5rem;
+  }
+  
+  .timeline-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .timeline-item-left .timeline-text {
+    align-items: flex-end;
+  }
+  
+  .timeline-item-right .timeline-text {
+    align-items: flex-start;
+  }
+  
+  .timeline-time {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    font-family: 'Public Sans', sans-serif;
+    color: var(--text-color);
+    opacity: 0.9;
+  }
+  
+  .timeline-title {
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+    color: var(--text-color);
+    margin: 0;
+  }
+  
+  /* Mobile - Mantiene la misma estructura alternada con línea centrada */
+  @media (max-width: 768px) {
+    .timeline-container {
+      padding: 2rem 0.75rem;
+    }
+    
+    .timeline-line {
+      left: 50%;
+      width: 1.5px;
+    }
+    
+    .timeline-dot {
+      left: 50%;
+      width: 32px;
+      height: 32px;
+    }
+    
+    .timeline-dot i {
+      font-size: 0.95rem;
+    }
+    
+    .timeline-item {
+      margin-bottom: 2rem;
+      min-height: 50px;
+    }
+    
+    .timeline-content {
+      max-width: calc(50% - 25px);
+    }
+    
+    .timeline-item-left .timeline-content {
+      padding-right: 0.75rem;
+      text-align: right;
+    }
+    
+    .timeline-item-right .timeline-content {
+      padding-left: 0.75rem;
+      text-align: left;
+    }
+    
+    .timeline-time {
+      font-size: 0.8rem;
+    }
+    
+    .timeline-title {
+      font-size: 0.95rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .timeline-container {
+      padding: 1.5rem 0.5rem;
+    }
+    
+    .timeline-line {
+      left: 50%;
+      width: 1px;
+    }
+    
+    .timeline-dot {
+      left: 50%;
+      width: 28px;
+      height: 28px;
+    }
+    
+    .timeline-dot i {
+      font-size: 0.85rem;
+    }
+    
+    .timeline-content {
+      max-width: calc(50% - 20px);
+    }
+    
+    .timeline-item-left .timeline-content {
+      padding-right: 0.5rem;
+    }
+    
+    .timeline-item-right .timeline-content {
+      padding-left: 0.5rem;
+    }
+    
+    .timeline-time {
+      font-size: 0.75rem;
+    }
+    
+    .timeline-title {
+      font-size: 0.85rem;
+    }
   }
   
   .text-primary {

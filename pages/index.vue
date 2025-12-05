@@ -164,53 +164,31 @@
         </div>
         </div>
 
-      <!--- Wedding Date -->
-      <div class="container-fluid wedding-date-bg position-relative py-5 section-bg">
-        <div class="position-absolute leaf-decoration" style="top: 50px; right: 5%; transform: rotate(30deg);"><i class="fas fa-leaf"></i></div>
-        <div class="position-absolute leaf-decoration" style="bottom: 60px; left: 5%; transform: rotate(-50deg);"><i class="fas fa-leaf"></i></div>
-        <div class="container py-5 wow zoomIn" data-wow-delay="0.1s">
-          <div class="wedding-date text-center p-5"
-            style="border-style: double !important; border: 15px solid rgba(107, 142, 90, 0.4); background-color: white; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-            <div class="wedding-date-content">
-              <div class="d-inline-block border-end-0 border-start-0 border-secondary p-2 mb-4"
-                style="border-style: double;">
-                <h4 class="text-uppercase fw-bold mb-0"
-                  :style="{ color: invitation.text_color || textColor, letterSpacing: '3px' }">{{
-                    formatDate(invitation.event_date) }}</h4>
-          </div>
-              <h1 class="display-4 elegant-heading" :style="{ color: textColor, fontSize: '2.5rem' }">Nos casamos</h1>
-              <p class="fs-5" :style="{ color: textColor }">{{ invitation.venue }}</p>
-              <div class="d-flex align-items-center justify-content-center mb-5">
-                <div class="fs-2 me-4" :style="{ color: invitation.text_color || textColor }">
-                  <div>{{ countdown.days }}</div>
-                  <span>Días</span>
-        </div>
-                <div class="fs-2 me-4" :style="{ color: invitation.text_color || textColor }">
-                  <div>{{ countdown.hours }}</div>
-                  <span>Horas</span>
-                </div>
-                <div class="fs-2 me-4" :style="{ color: invitation.text_color || textColor }">
-                  <div>{{ countdown.minutes }}</div>
-                  <span>Mins</span>
-                </div>
-                <div class="fs-2 me-0" :style="{ color: invitation.text_color || textColor }">
-                  <div>{{ countdown.seconds }}</div>
-                  <span>Secs</span>
-                </div>
-              </div>
+      <!-- Countdown Timer Section -->
+      <div class="container-fluid countdown-section position-relative py-5">
+        <div class="countdown-background"></div>
+        <div class="container py-5 position-relative">
+          <div class="countdown-container">
+            <div class="countdown-item">
+              <div class="countdown-number">{{ countdown.days }}</div>
+              <div class="countdown-label">DÍAS</div>
             </div>
-            <div class="position-absolute"
-              style="top: 15%; right: -30px; transform: rotate(320deg); opacity: 0.5; z-index: 1;">
-              <img src="/assets/layouts/classic/img/attendance-bg.png" class="img-fluid" alt="">
+            <div class="countdown-item">
+              <div class="countdown-number">{{ countdown.hours }}</div>
+              <div class="countdown-label">HORAS</div>
             </div>
-            <div class="position-absolute"
-              style="top: 15%; left: -10px; transform: rotate(-320deg); opacity: 0.5; z-index: 1;">
-              <img src="/assets/layouts/classic/img/attendance-bg.png" class="img-fluid" alt="">
+            <div class="countdown-item">
+              <div class="countdown-number">{{ countdown.minutes }}</div>
+              <div class="countdown-label">MINUTOS</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number">{{ countdown.seconds }}</div>
+              <div class="countdown-label">SEGUNDOS</div>
             </div>
           </div>
         </div>
       </div>
-      <!-- Wedding Date -->
+      <!-- Countdown Timer End -->
   
       <!-- Wedding Timeline start -->
       <div class="container-fluid wedding-timeline position-relative overflow-hidden py-5 section-bg"
@@ -692,7 +670,7 @@
   .timeline-item-right .timeline-text {
     align-items: flex-start;
   }
-  
+
   .timeline-time {
     font-size: 0.9rem;
     font-weight: 600;
@@ -778,9 +756,9 @@
     
     .timeline-dot i {
       font-size: 0.85rem;
-    }
-    
-    .timeline-content {
+  }
+
+  .timeline-content {
       max-width: calc(50% - 20px);
     }
     
@@ -881,6 +859,137 @@
   
   .btn[href*="wa.me"]:hover {
     animation: none;
+  }
+  
+  /* Countdown Timer Styles - Minimalist Design */
+  .countdown-section {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .countdown-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/assets/layouts/classic/img/wedding-date-bg.jpg') center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+  }
+  
+  .countdown-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+  
+  .countdown-section .container {
+    z-index: 2;
+  }
+  
+  .countdown-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  
+  .countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .countdown-number {
+    font-size: 5rem;
+    font-weight: 700;
+    font-family: 'Public Sans', sans-serif;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    letter-spacing: -2px;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .countdown-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Public Sans', sans-serif;
+    color: white;
+    opacity: 0.95;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+  }
+  
+  @media (max-width: 992px) {
+    .countdown-container {
+      gap: 2.5rem;
+    }
+    
+    .countdown-number {
+      font-size: 4rem;
+    }
+    
+    .countdown-label {
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .countdown-section {
+      min-height: 350px;
+    }
+    
+    .countdown-container {
+      gap: 2rem;
+    }
+    
+    .countdown-number {
+      font-size: 3.5rem;
+      letter-spacing: -1.5px;
+    }
+    
+    .countdown-label {
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .countdown-section {
+      min-height: 300px;
+      padding: 3rem 0 !important;
+    }
+    
+    .countdown-container {
+      gap: 1.5rem;
+    }
+    
+    .countdown-number {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .countdown-label {
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+    }
   }
   </style>
   

@@ -172,11 +172,11 @@
             <div class="countdown-item">
               <div class="countdown-number">{{ countdown.days }}</div>
               <div class="countdown-label">DÍAS</div>
-            </div>
+          </div>
             <div class="countdown-item">
               <div class="countdown-number">{{ countdown.hours }}</div>
               <div class="countdown-label">HORAS</div>
-            </div>
+        </div>
             <div class="countdown-item">
               <div class="countdown-number">{{ countdown.minutes }}</div>
               <div class="countdown-label">MINUTOS</div>
@@ -197,7 +197,9 @@
         <div class="position-absolute leaf-decoration" style="bottom: 40px; right: 10%; transform: rotate(55deg);"><i class="fas fa-leaf"></i></div>
         <div class="container py-5">
           <div class="text-center mb-5">
-            <h1 class="display-4 mb-2 elegant-heading" :style="{ color: primaryColor, fontSize: '2.8rem', fontWeight: '500' }">ITINERARIO DE ACTIVIDADES</h1>
+            <h1 class="display-3 mb-4 elegant-name" :style="{ color: primaryColor, fontSize: '3.5rem' }">
+              Itinerario de actividades
+            </h1>
             <p class="elegant-body" :style="{ color: textColor, fontSize: '1.1rem', opacity: '0.8' }">Planificación de la boda</p>
         </div>
           <div class="position-relative wedding-content">
@@ -241,7 +243,7 @@
               <div class="p-4 rounded h-100" :style="{ borderStyle: 'double', border: `10px solid ${primaryColor}40`, backgroundColor: 'white', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }">
                 <div class="d-flex align-items-center mb-3">
                   <i class="fas fa-church fa-2x me-3" :style="{ color: primaryColor }"></i>
-                  <h3 class="mb-0 elegant-heading" :style="{ color: textColor, fontSize: '1.5rem' }">CEREMONIA RELIGIOSA</h3>
+                  <h3 class="mb-0 elegant-heading" :style="{ color: textColor, fontSize: '1.5rem' }">Ceremonia religiosa</h3>
           </div>
                 <p class="fw-bold mb-2 elegant-body" :style="{ color: textColor, fontSize: '1.1rem' }">{{ invitation.religious_ceremony.location }}</p>
                 <p class="mb-3 elegant-body" :style="{ color: textColor, fontSize: '1rem' }">{{ invitation.religious_ceremony.address }}</p>
@@ -259,7 +261,7 @@
               <div class="p-4 rounded h-100" :style="{ borderStyle: 'double', border: `10px solid ${primaryColor}40`, backgroundColor: 'white', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }">
                 <div class="d-flex align-items-center mb-3">
                   <i class="fas fa-building fa-2x me-3" :style="{ color: primaryColor }"></i>
-                  <h3 class="mb-0 elegant-heading" :style="{ color: textColor, fontSize: '1.5rem' }">RECEPCIÓN</h3>
+                  <h3 class="mb-0 elegant-heading" :style="{ color: textColor, fontSize: '1.5rem' }">Recepción</h3>
           </div>
                 <p class="fw-bold mb-2 elegant-body" :style="{ color: textColor, fontSize: '1.1rem' }">{{ invitation.reception.location }}</p>
                 <p class="mb-3 elegant-body" :style="{ color: textColor, fontSize: '1rem' }">{{ invitation.reception.address }}</p>
@@ -280,17 +282,99 @@
       <div v-if="invitation.dress_code" class="container-fluid position-relative py-5 section-bg">
         <div class="position-absolute leaf-decoration" style="top: 25px; right: 12%; transform: rotate(35deg);"><i class="fas fa-leaf"></i></div>
         <div class="container position-relative py-5">
-          <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h2 class="display-5 mb-4 elegant-heading" :style="{ color: primaryColor, fontSize: '2rem' }">CÓDIGO DE VESTIMENTA</h2>
-            <div class="p-4 rounded" :style="{ borderStyle: 'double', border: `10px solid ${primaryColor}40`, backgroundColor: 'white', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }">
-              <p class="fs-3 fw-bold mb-4 elegant-heading" :style="{ color: textColor, fontSize: '1.8rem' }">{{ invitation.dress_code }}</p>
-              <div class="d-flex justify-content-center gap-4">
-                <i class="fas fa-user-tie fa-3x" :style="{ color: primaryColor }"></i>
-                <i class="fas fa-female fa-3x" :style="{ color: primaryColor }"></i>
+          <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+            <h2 class="display-5 mb-4 elegant-name" :style="{ color: primaryColor, fontSize: '2rem' }">Código de vestimenta</h2>
+            <div class="dress-code-box p-5" :style="{ border: `1px solid rgba(107, 142, 90, 0.3)`, backgroundColor: 'white', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <div class="dress-code-gender">
+                    <div class="dress-code-icon mb-3">
+                      <i class="fas fa-user-tie" :style="{ color: primaryColor, fontSize: '2.5rem' }"></i>
         </div>
+                    <h4 class="dress-code-gender-title elegant-heading mb-3" :style="{ color: textColor, fontSize: '1.2rem' }">Caballeros</h4>
+                    <ul class="dress-code-list elegant-body" :style="{ color: textColor, fontSize: '1rem', textAlign: 'left', listStyle: 'none', padding: 0 }">
+                      <li v-if="invitation.dress_code.toLowerCase() === 'formal'" class="mb-2">
+                        <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
+                        Traje completo (saco y pantalón)
+                      </li>
+                      <li v-if="invitation.dress_code.toLowerCase() === 'formal'" class="mb-2">
+                        <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
+                        Camisa formal
+                      </li>
+                      <li v-if="invitation.dress_code.toLowerCase() === 'formal'" class="mb-2">
+                        <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
+                        Corbata o corbatín
+                      </li>
+                      <li v-if="invitation.dress_code.toLowerCase() === 'formal'" class="mb-2">
+                        <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
+                        Zapatos formales
+                      </li>
+                      <li v-if="invitation.dress_code.toLowerCase() === 'semi-formal' || invitation.dress_code.toLowerCase() === 'semi formal'" class="mb-2">
+                        <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
+                        Traje o blazer
+                      </li>
+                      <li v-if="invitation.dress_code.toLowerCase() === 'semi-formal' || invitation.dress_code.toLowerCase() === 'semi formal'" class="mb-2">
+                        <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
+                        Camisa de vestir
+                      </li>
+                      <li v-if="invitation.dress_code.toLowerCase() === 'casual'" class="mb-2">
+                        <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
+                        Pantalón de vestir
+                      </li>
+                      <li v-if="invitation.dress_code.toLowerCase() === 'casual'" class="mb-2">
+                        <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
+                        Camisa o polo
+                      </li>
+                    </ul>
           </div>
         </div>
+                <!-- Women's Dress Code -->
+                <div class="col-md-6">
+                  <div class="dress-code-gender">
+                    <div class="dress-code-icon mb-3">
+                      <i class="fas fa-female" :style="{ color: primaryColor, fontSize: '2.5rem' }"></i>
           </div>
+                    <h4 class="dress-code-gender-title elegant-heading mb-3" :style="{ color: textColor, fontSize: '1.2rem' }">Damas</h4>
+                    <ul class="dress-code-list elegant-body" :style="{ color: textColor, fontSize: '1rem', textAlign: 'left', listStyle: 'none', padding: 0 }">
+                      <li v-if="invitation.dress_code.toLowerCase() === 'formal'" class="mb-2">
+                        <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
+                        Vestido largo o de cóctel
+                      </li>
+                      <li v-if="invitation.dress_code.toLowerCase() === 'formal'" class="mb-2">
+                        <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
+                        Elegante y sofisticado
+                      </li>
+                      <li v-if="invitation.dress_code.toLowerCase() === 'formal'" class="mb-2">
+                        <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
+                        Zapatos de tacón o flats elegantes
+                      </li>
+                      <li v-if="invitation.dress_code.toLowerCase() === 'formal'" class="mb-2">
+                        <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
+                        Accesorios discretos
+                      </li>
+                      <li v-if="invitation.dress_code.toLowerCase() === 'semi-formal' || invitation.dress_code.toLowerCase() === 'semi formal'" class="mb-2">
+                        <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
+                        Vestido de cóctel o elegante
+                      </li>
+                      <li v-if="invitation.dress_code.toLowerCase() === 'semi-formal' || invitation.dress_code.toLowerCase() === 'semi formal'" class="mb-2">
+                        <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
+                        Conjunto elegante
+                      </li>
+                      <li v-if="invitation.dress_code.toLowerCase() === 'casual'" class="mb-2">
+                        <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
+                        Vestido casual elegante
+                      </li>
+                      <li v-if="invitation.dress_code.toLowerCase() === 'casual'" class="mb-2">
+                        <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
+                        Conjunto cómodo y elegante
+                      </li>
+                    </ul>
+            </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            </div>
           </div>
 
       <!-- Gift Suggestions Section -->
@@ -301,7 +385,7 @@
           <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 700px;">
             <div class="d-flex align-items-center justify-content-center mb-3">
               <i class="fas fa-gift fa-2x me-3" :style="{ color: primaryColor }"></i>
-              <h2 class="display-5 mb-0 elegant-heading" :style="{ color: primaryColor, fontSize: '2rem' }">SUGERENCIA DE REGALOS</h2>
+              <h2 class="display-5 mb-0 elegant-name" :style="{ color: primaryColor, fontSize: '2rem' }">Sugerencia de regalos</h2>
             </div>
             <p class="lead mb-4 elegant-body" :style="{ color: textColor, fontSize: '1.2rem' }">
               Su presencia en nuestra boda será el mejor regalo. Pero si desean darnos otro obsequio, les dejamos estas opciones:
@@ -356,8 +440,8 @@
             </div>
           </div>
         </div>
-      </div>
-  
+        </div>
+
       <!-- Confirmación Start -->
       <div class="container-fluid position-relative py-5 section-bg" id="confirmation" v-if="invitation.whatsapp_number">
         <div class="position-absolute leaf-decoration" style="top: 30px; left: 15%; transform: rotate(-25deg);"><i class="fas fa-leaf"></i></div>
@@ -378,29 +462,13 @@
                 <i class="fab fa-whatsapp me-3"></i>
                 Confirmar Asistencia
               </a>
-              <a 
-                v-if="invitation.google_maps_url" 
-                :href="invitation.google_maps_url" 
-                target="_blank" 
-                class="btn btn-md px-5 py-3 fw-bold"
-                :style="{ 
-                  borderColor: primaryColor, 
-                  color: primaryColor,
-                  borderRadius: '50px',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
-                }"
-              >
-                <i class="fas fa-map-marker-alt me-3"></i>
-                Ver Ubicación
-          </a>
-        </div>
-
+          </div>
             <div class="mt-4">
               <small class="text-muted">
                 <i class="fas fa-info-circle me-1"></i>
                 Haz clic en "Confirmar Asistencia" para enviar un mensaje por WhatsApp
               </small>
-          </div>
+        </div>
         </div>
         </div>
       </div>
@@ -636,7 +704,7 @@
     color: var(--text-color);
     transition: all 0.3s ease;
   }
-  
+
   .timeline-item:hover .timeline-dot i {
     color: var(--primary-color);
     transform: scale(1.2);
@@ -768,9 +836,9 @@
     
     .timeline-item-right .timeline-content {
       padding-left: 0.5rem;
-    }
-    
-    .timeline-time {
+  }
+
+  .timeline-time {
       font-size: 0.75rem;
     }
     
@@ -859,6 +927,59 @@
   
   .btn[href*="wa.me"]:hover {
     animation: none;
+  }
+  
+  /* Dress Code Styles */
+  .dress-code-box {
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .dress-code-type {
+    text-transform: capitalize;
+  }
+  
+  .dress-code-gender {
+    text-align: center;
+  }
+
+  .dress-code-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .dress-code-list {
+    margin: 0;
+  }
+  
+  .dress-code-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+  }
+  
+  .dress-code-list li i {
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .dress-code-box {
+      padding: 2rem 1.5rem !important;
+    }
+    
+    .dress-code-type {
+      font-size: 1.5rem !important;
+    }
+    
+    .dress-code-gender-title {
+      font-size: 1.1rem !important;
+    }
+    
+    .dress-code-list {
+      font-size: 0.9rem !important;
+    }
   }
   
   /* Countdown Timer Styles - Minimalist Design */

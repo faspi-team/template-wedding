@@ -31,7 +31,7 @@
       "gifts": {
         "transfer": {
           "qr_code": "/assets/images/default-invitation.svg",
-          "info": "Banco: Banco Nacional\nCuenta: 1234567890\nTitular: Mayra & Angello"
+          "info": "Banco: BBVA\nN° de cuenta: 0011-0814-0227324169\nCCI: 011-814-000227324169-11\nTitular: Angello"
         },
         "registry": {
           "url": "https://example.com/registry",
@@ -84,56 +84,56 @@
       "wedding_timeline": [
         {
           "id": "timeline-1",
-          "title": "CEREMONIA RELIGIOSA",
+          "title": "Ceremonia Religiosa",
           "time": "11:00 AM",
           "description": "Ceremonia religiosa",
           "icon": "fa-church"
         },
         {
           "id": "timeline-2",
-          "title": "SESIÓN DE FOTOS",
+          "title": "Sesión de Fotos",
           "time": "12:00 PM",
           "description": "Sesión de fotos",
           "icon": "fa-camera"
         },
         {
           "id": "timeline-3",
-          "title": "CENA",
+          "title": "Cena",
           "time": "1:00 PM",
           "description": "Cena",
           "icon": "fa-utensils"
         },
         {
           "id": "timeline-4",
-          "title": "TORTA",
+          "title": "Torta",
           "time": "3:00 PM",
           "description": "Corte de torta",
           "icon": "fa-birthday-cake"
         },
         {
           "id": "timeline-5",
-          "title": "BRINDIS",
+          "title": "Brindis",
           "time": "3:30 PM",
           "description": "Brindis",
           "icon": "fa-wine-glass"
         },
         {
           "id": "timeline-6",
-          "title": "PRIMER BAILE",
+          "title": "Primer Baile",
           "time": "5:00 PM",
           "description": "Primer baile",
           "icon": "fa-music"
         },
         {
           "id": "timeline-7",
-          "title": "BOCADITOS",
+          "title": "Bocaditos",
           "time": "7:00 PM",
           "description": "Bocaditos",
           "icon": "fa-drumstick-bite"
         },
         {
           "id": "timeline-8",
-          "title": "DESPEDIDA",
+          "title": "Despedida",
           "time": "11:00 PM",
           "description": "Despedida",
           "icon": "fa-star"

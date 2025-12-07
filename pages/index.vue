@@ -16,7 +16,7 @@
           </button>
           <div class="music-info">
             <small class="d-block" :style="{ color: textColor }">{{ invitation.music.name
-            }}</small>
+              }}</small>
           </div>
           <button @click="toggleMute" class="btn btn-outline-secondary btn-sm rounded-circle ms-2"
             :title="isMuted ? 'Activar sonido' : 'Silenciar'">
@@ -71,7 +71,7 @@
                   </div>
                   <h1 class="display-1 text-capitalize text-white mb-3 elegant-name" style="font-size: 3.5rem;">{{
                     invitation.bride_name }} <i class="fa fa-heart" style="color: #fd5d5d;"></i> {{
-                    invitation.groom_name }}</h1>
+                      invitation.groom_name }}</h1>
                   <div class="d-inline-block border-end-0 border-start-0 border-secondary p-2 mb-5"
                     style="border-style: double;">
                     <h4 class="text-white text-uppercase fw-bold mb-0" style="letter-spacing: 3px;"> {{
@@ -281,7 +281,7 @@
                 invitation.reception.location }}</p>
               <p class="mb-3 elegant-body" :style="{ color: textColor, fontSize: '1rem' }">{{
                 invitation.reception.address
-                }}</p>
+              }}</p>
               <a v-if="invitation.reception.maps_url" :href="invitation.reception.maps_url" target="_blank"
                 class="btn btn-sm"
                 :style="{ backgroundColor: primaryColor, borderColor: primaryColor, color: 'white' }">
@@ -438,7 +438,7 @@
                 </div>
                 <div v-if="invitation.gifts.transfer.info" class="small" :style="{ color: textColor }">
                   <p v-for="(line, idx) in invitation.gifts.transfer.info.split('\n')" :key="idx" class="mb-1">{{ line
-                    }}
+                  }}
                   </p>
                 </div>
               </div>
@@ -506,6 +506,14 @@
             }" style="border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
               <i class="fab fa-whatsapp me-3"></i>
               Confirmar Asistencia
+            </a>
+            <a :href="googleCalendarUrl" target="_blank" class="btn btn-md px-5 py-3 fw-bold" :style="{
+              borderColor: primaryColor,
+              color: primaryColor,
+              backgroundColor: 'white'
+            }" style="border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border: 2px solid;">
+              <i class="fab fa-google me-3"></i>
+              Agregar a Calendario
             </a>
           </div>
           <div class="mt-4">
@@ -1226,6 +1234,80 @@ const whatsappUrl = computed(() => {
   )
 
   return `https://wa.me/${numberWithCountry}?text=${message}`
+})
+
+const googleCalendarUrl = computed(() => {
+  if (!invitation.value?.event_date) return ''
+
+  try {
+    const eventDate = new Date(invitation.value.event_date)
+
+    const eventDateLocal = new Date(eventDate)
+    
+    const startDateObj = new Date(eventDateLocal)
+    startDateObj.setHours(20, 0, 0, 0) // 8:00 PM hora local
+    
+    const endDateObj = new Date(eventDateLocal)
+    endDateObj.setDate(endDateObj.getDate() + 1) // Día siguiente
+    endDateObj.setHours(2, 0, 0, 0) // 2:00 AM hora local
+
+    const formatDate = (date: Date): string => {
+      const year = date.getFullYear()
+      const month = String(date.getMonth() + 1).padStart(2, '0')
+      const day = String(date.getDate()).padStart(2, '0')
+      const hours = String(date.getHours()).padStart(2, '0')
+      const minutes = String(date.getMinutes()).padStart(2, '0')
+      const seconds = String(date.getSeconds()).padStart(2, '0')
+      return `${year}${month}${day}T${hours}${minutes}${seconds}`
+    }
+
+    const startDate = formatDate(startDateObj)
+    const endDate = formatDate(endDateObj)
+
+    const title = encodeURIComponent(
+      `Boda de ${invitation.value.bride_name || ''} & ${invitation.value.groom_name || ''}`
+    )
+
+    let description = ''
+    if (invitation.value.invitation_message) {
+      description += invitation.value.invitation_message
+    }
+    if (invitation.value.bible_verse) {
+      description += `\n\n"${invitation.value.bible_verse}"`
+      if (invitation.value.bible_reference) {
+        description += ` - ${invitation.value.bible_reference}`
+      }
+    }
+    if (invitation.value.venue) {
+      description += `\n\nLugar: ${invitation.value.venue}`
+    }
+    if (invitation.value.religious_ceremony?.location) {
+      description += `\n\nCeremonia: ${invitation.value.religious_ceremony.location}`
+      if (invitation.value.religious_ceremony.address) {
+        description += `, ${invitation.value.religious_ceremony.address}`
+      }
+    }
+    if (invitation.value.reception?.location) {
+      description += `\n\nRecepción: ${invitation.value.reception.location}`
+      if (invitation.value.reception.address) {
+        description += `, ${invitation.value.reception.address}`
+      }
+    }
+
+    const encodedDescription = encodeURIComponent(description)
+
+    const location = encodeURIComponent(
+      invitation.value.venue ||
+      invitation.value.reception?.location ||
+      invitation.value.religious_ceremony?.location ||
+      ''
+    )
+
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${encodedDescription}&location=${location}`
+  } catch (error) {
+    console.error('Error generating Google Calendar URL:', error)
+    return ''
+  }
 })
 
 // helper colors - Updated to match elegant green theme

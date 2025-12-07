@@ -169,7 +169,7 @@
     </div>
 
     <!-- Countdown Timer Section -->
-    <div class="container-fluid countdown-section position-relative py-5">
+    <div class="container-fluid countdown-section position-relative py-2">
       <div class="countdown-background"></div>
       <div class="container py-5 position-relative">
         <div class="countdown-container">
@@ -242,7 +242,7 @@
     <!-- Wedding Timeline End -->
 
     <!-- Religious Ceremony & Reception Details -->
-    <div class="container-fluid position-relative py-5 section-bg">
+    <div class="container-fluid position-relative py-2 section-bg">
       <div class="position-absolute leaf-decoration" style="top: 40px; left: 5%; transform: rotate(-20deg);"><i
           class="fas fa-leaf"></i></div>
       <div class="position-absolute leaf-decoration" style="bottom: 30px; right: 8%; transform: rotate(50deg);"><i
@@ -294,7 +294,7 @@
     </div>
 
     <!-- Dress Code Section -->
-    <div v-if="invitation.dress_code" class="container-fluid position-relative py-5 section-bg">
+    <div v-if="invitation.dress_code" class="container-fluid position-relative py-2 section-bg">
       <div class="position-absolute leaf-decoration" style="top: 25px; right: 12%; transform: rotate(35deg);"><i
           class="fas fa-leaf"></i></div>
       <div class="container position-relative py-5">
@@ -409,7 +409,7 @@
     </div>
 
     <!-- Gift Suggestions Section -->
-    <div v-if="invitation.gifts" class="container-fluid position-relative py-5 section-bg">
+    <div v-if="invitation.gifts" class="container-fluid position-relative py-2 section-bg">
       <div class="position-absolute leaf-decoration" style="top: 50px; left: 8%; transform: rotate(-45deg);"><i
           class="fas fa-leaf"></i></div>
       <div class="position-absolute leaf-decoration" style="bottom: 40px; right: 10%; transform: rotate(70deg);"><i
@@ -423,8 +423,8 @@
             </h2>
           </div>
           <p class="lead mb-4 elegant-body" :style="{ color: textColor, fontSize: '1.2rem' }">
-            Su presencia en nuestra boda será el mejor regalo. Pero si desean darnos otro obsequio, les dejamos estas
-            opciones:
+            Su cariño y presencia son lo más importante. 
+            Si desean darnos un detalle, agradeceremos un aporte para nuestro nuevo hogar
           </p>
           <div class="row g-4">
             <!-- Transfer Option -->
@@ -464,7 +464,7 @@
     </div>
 
     <!-- No Children Policy Section -->
-    <div v-if="invitation.no_children_policy" class="container-fluid position-relative py-5 section-bg">
+    <div v-if="invitation.no_children_policy" class="container-fluid position-relative py-2 section-bg">
       <div class="container position-relative py-4">
         <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
           <div class="p-4 rounded d-inline-block"
@@ -483,7 +483,7 @@
     </div>
 
     <!-- Confirmación Start -->
-    <div class="container-fluid position-relative py-5 section-bg" id="confirmation" v-if="invitation.whatsapp_number">
+    <div class="container-fluid position-relative py-2 section-bg" id="confirmation" v-if="invitation.whatsapp_number">
       <div class="position-absolute leaf-decoration" style="top: 30px; left: 15%; transform: rotate(-25deg);"><i
           class="fas fa-leaf"></i></div>
       <div class="position-absolute leaf-decoration" style="bottom: 25px; right: 12%; transform: rotate(55deg);"><i
@@ -528,16 +528,14 @@
     <!-- Confirmación End -->
 
     <!-- Thank You Message -->
-    <div class="container-fluid position-relative py-5 section-bg">
+    <div class="container-fluid position-relative py-2 section-bg">
       <div class="position-absolute leaf-decoration" style="top: 20px; right: 8%; transform: rotate(40deg);"><i
           class="fas fa-leaf"></i></div>
       <div class="position-absolute leaf-decoration" style="bottom: 30px; left: 10%; transform: rotate(-60deg);"><i
           class="fas fa-leaf"></i></div>
-      <div class="container position-relative py-5">
+      <div class="container position-relative py-2">
         <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-          <h2 class="display-4 mb-4 elegant-heading" :style="{ color: primaryColor, fontSize: '2rem' }">ESPERAMOS CONTAR
-            CON
-            SU PRESENCIA</h2>
+          <h2 class="display-4 mb-4 elegant-heading" :style="{ color: primaryColor, fontSize: '2rem' }">ESPERAMOS CONTAR CON SU PRESENCIA</h2>
           <h1 class="display-2 fw-bold elegant-name" :style="{ color: primaryColor, fontSize: '3.5rem' }">Muchas
             Gracias!
           </h1>

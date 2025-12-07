@@ -428,7 +428,7 @@
           </p>
           <div class="row g-4">
             <!-- Transfer Option -->
-            <div v-if="invitation.gifts.transfer" class="col-md-6">
+            <div v-if="invitation.gifts.transfer" class="col-md-12">
               <div class="p-4 rounded h-100"
                 :style="{ borderStyle: 'double', border: `10px solid ${primaryColor}40`, backgroundColor: 'white', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }">
                 <h4 class="mb-3 elegant-heading" :style="{ color: textColor, fontSize: '1.3rem' }">Transferencia</h4>
@@ -441,21 +441,6 @@
                   }}
                   </p>
                 </div>
-              </div>
-            </div>
-            <!-- Gift Registry -->
-            <div v-if="invitation.gifts.registry" class="col-md-6">
-              <div class="p-4 rounded h-100"
-                :style="{ borderStyle: 'double', border: `10px solid ${primaryColor}40`, backgroundColor: 'white', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }">
-                <h4 class="mb-3 elegant-heading" :style="{ color: textColor, fontSize: '1.3rem' }">Nuestra lista</h4>
-                <a v-if="invitation.gifts.registry.url" :href="invitation.gifts.registry.url" target="_blank"
-                  class="btn btn-md text-white fw-bold text-center" :style="{
-                    backgroundColor: primaryColor,
-                    borderColor: primaryColor
-                  }" style="border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-                  <i class="fas fa-gift me-3"></i>
-                  Ver lista de regalos
-                </a>
               </div>
             </div>
           </div>

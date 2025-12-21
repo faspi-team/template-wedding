@@ -27,6 +27,7 @@
           @play="isPlaying = true" @pause="isPlaying = false" @ended="isPlaying = false" @error="onAudioError" />
       </div>
     </div>
+
     <div class="container-fluid carousel-header px-0">
       <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
         <ol class="carousel-indicators">
@@ -437,7 +438,7 @@
     </div>
 
     <!-- Confirmación Start -->
-    <div class="container-fluid position-relative py-2 section-bg" id="confirmation" v-if="invitation.whatsapp_number">
+    <div class="container-fluid position-relative py-2 section-bg" id="confirmation">
       <div class="position-absolute leaf-decoration" style="top: 30px; left: 15%; transform: rotate(-25deg);"><i
           class="fas fa-leaf"></i></div>
       <div class="position-absolute leaf-decoration" style="bottom: 25px; right: 12%; transform: rotate(55deg);"><i
@@ -454,13 +455,12 @@
             Haz clic en el botón de abajo para confirmar tu asistencia a través de WhatsApp
           </p>
           <div class="d-flex justify-content-center gap-3 flex-wrap">
-            <button @click="showConfirmationModal = true" class="btn btn-md px-5 py-3 text-white fw-bold" :style="{
+            <a :href="invitation.confirm_url" v-if="invitation.confirm_url" target="_blank" class="btn btn-md px-5 py-3 text-white fw-bold" :style="{
               backgroundColor: primaryColor,
               borderColor: primaryColor
             }" style="border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-              <i class="fab fa-whatsapp me-3"></i>
               Confirmar Asistencia
-            </button>
+            </a>
             <a :href="googleCalendarUrl" target="_blank" class="btn btn-md px-5 py-3 fw-bold" :style="{
               borderColor: primaryColor,
               color: primaryColor,
@@ -469,44 +469,6 @@
               <i class="fab fa-google me-3"></i>
               Agregar a Calendario
             </a>
-          </div>
-          
-          <!-- Modal de Confirmación -->
-          <div v-if="showConfirmationModal" class="confirmation-modal-overlay" @click="showConfirmationModal = false">
-            <div class="confirmation-modal-dialog" @click.stop>
-              <div class="confirmation-modal-content" :style="{ borderRadius: '20px', border: 'none', boxShadow: '0 8px 30px rgba(0,0,0,0.3)' }">
-                
-                <div class="confirmation-modal-body p-4">
-                  <p class="mb-4 elegant-body" :style="{ color: textColor, fontSize: '1.1rem', textAlign: 'center' }">
-                    Selecciona con quién deseas confirmar tu asistencia al WhatsApp:
-                  </p>
-                  <div class="d-flex flex-column gap-3">
-                    <button @click="confirmAttendance('bride')" class="confirmation-option-btn btn btn-lg py-3 fw-bold d-flex align-items-center justify-content-center gap-3" 
-                      :style="{ 
-                        backgroundColor: primaryColor + '20', 
-                        borderColor: primaryColor, 
-                        color: primaryColor,
-                        border: '2px solid',
-                        borderRadius: '15px'
-                      }">
-                      <i class="fas fa-female fa-2x"></i>
-                      <span style="font-size: 1.2rem;">{{ invitation.bride_name }}</span>
-                    </button>
-                    <button @click="confirmAttendance('groom')" class="confirmation-option-btn btn btn-lg py-3 fw-bold d-flex align-items-center justify-content-center gap-3"
-                      :style="{ 
-                        backgroundColor: primaryColor + '20', 
-                        borderColor: primaryColor, 
-                        color: primaryColor,
-                        border: '2px solid',
-                        borderRadius: '15px'
-                      }">
-                      <i class="fas fa-male fa-2x"></i>
-                      <span style="font-size: 1.2rem;">{{ invitation.groom_name }}</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div class="mt-4">
             <small class="text-muted">
@@ -1416,39 +1378,17 @@ const galleryPhotos = computed(() => {
   return invitation.value.gallery_photos
 })
 
-const showConfirmationModal = ref(false)
-const selectedPerson = ref<'bride' | 'groom' | null>(null)
-
-const getWhatsappUrl = (person: 'bride' | 'groom') => {
-  if (!invitation.value?.whatsapp_number?.[person]) return ''
-
-  const cleanNumber = invitation.value.whatsapp_number?.[person].replace(/[\s\-\(\)]/g, '')
-  const numberWithCountry = cleanNumber.startsWith('+') ? cleanNumber : `+${cleanNumber}`
-
-  const personName = person === 'bride' ? invitation.value.bride_name : invitation.value.groom_name || ''
-  const message = encodeURIComponent(
-    `¡Hola ${personName}! Confirmo mi asistencia. Encantado(a) de asistir a su boda. ¡Gracias por invitarme!`
-  )
-
-  return `https://wa.me/${numberWithCountry}?text=${message}`
-}
-
-const confirmAttendance = (person: 'bride' | 'groom') => {
-  selectedPerson.value = person
-  const url = getWhatsappUrl(person)
-  if (url) {
-    window.open(url, '_blank')
-    showConfirmationModal.value = false
-  }
-}
-
 const whatsappUrl = computed(() => {
   if (!invitation.value?.whatsapp_number) return ''
+
   const cleanNumber = invitation.value.whatsapp_number.replace(/[\s\-\(\)]/g, '')
+
   const numberWithCountry = cleanNumber.startsWith('+') ? cleanNumber : `+${cleanNumber}`
+
   const message = encodeURIComponent(
     `¡Hola! Confirmo mi asistencia. Encantado de asistir a su boda. ¡Gracias por invitarme!`
   )
+
   return `https://wa.me/${numberWithCountry}?text=${message}`
 })
 

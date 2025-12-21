@@ -395,6 +395,47 @@
       </div>
     </div>
 
+    <!-- Memory Album / Drive Upload Section -->
+    <div v-if="invitation.drive_upload_url" class="container-fluid position-relative py-2 section-bg">
+      <div class="position-absolute leaf-decoration" style="top: 30px; right: 10%; transform: rotate(45deg);"><i
+          class="fas fa-leaf"></i></div>
+      <div class="position-absolute leaf-decoration" style="bottom: 25px; left: 12%; transform: rotate(-25deg);"><i
+          class="fas fa-leaf"></i></div>
+      <div class="container position-relative py-5">
+        <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+          <div class="memory-icon-container mb-4">
+            <div class="memory-icon-circle" :style="{ backgroundColor: primaryColor, boxShadow: 'none' }">
+              <i class="fas fa-camera"></i>
+            </div>
+          </div>
+          <div class="mb-4">
+            <h2 class="memory-title-line elegant-heading mb-2" :style="{ color: textColor, fontSize: '1rem', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'sans-serif' }">
+              ÁLBUM DE
+            </h2>
+            <h1 class="memory-title-main elegant-name" :style="{ color: primaryColor, fontSize: '2.5rem', fontWeight: '600' }">
+              Recuerdos
+            </h1>
+          </div>
+          
+          <p class="memory-instruction elegant-body mb-4" :style="{ color: textColor, fontSize: '1.1rem', lineHeight: '1.6' }">
+            ¡Conviértete en nuestro mejor fotógrafo!<br>
+            Únete y agrega las imágenes de los<br>
+            momentos más importantes de nuestro gran día
+          </p>
+          <a :href="invitation.drive_upload_url" target="_blank" class="btn px-5 py-3 text-white fw-bold elegant-body"
+            :style="{
+              backgroundColor: primaryColor,
+              borderRadius: '8px',
+              fontSize: '1.1rem',
+              textDecoration: 'none',
+              display: 'inline-block'
+            }">
+            Click para subir fotos
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- Confirmación Start -->
     <div class="container-fluid position-relative py-2 section-bg" id="confirmation" v-if="invitation.whatsapp_number">
       <div class="position-absolute leaf-decoration" style="top: 30px; left: 15%; transform: rotate(-25deg);"><i
@@ -1267,6 +1308,60 @@ body {
   }
   
   .spotify-instruction {
+    font-size: 1rem !important;
+  }
+}
+
+/* Memory Album / Drive Upload Section Styles */
+.memory-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.memory-icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.memory-icon-circle i {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.memory-title-line {
+  font-weight: 400;
+  letter-spacing: 3px;
+}
+
+.memory-title-main {
+  font-weight: 600;
+}
+
+.memory-instruction {
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .memory-icon-circle {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .memory-icon-circle i {
+    font-size: 2rem;
+  }
+  
+  .memory-title-main {
+    font-size: 2rem !important;
+  }
+  
+  .memory-instruction {
     font-size: 1rem !important;
   }
 }

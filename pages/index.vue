@@ -1267,15 +1267,67 @@ const googleCalendarUrl = computed(() => {
 
   try {
     const eventDate = new Date(invitation.value.event_date)
-
     const eventDateLocal = new Date(eventDate)
     
+    // Función helper para parsear tiempo del formato "11:30 AM" o "2:30 PM" a horas y minutos
+    const parseTime = (timeString: string): { hours: number; minutes: number } => {
+      const timeRegex = /(\d{1,2}):(\d{2})\s*(AM|PM)/i
+      const match = timeString.match(timeRegex)
+      if (!match) return { hours: 11, minutes: 30 } // Valor por defecto
+      
+      let hours = parseInt(match[1], 10)
+      const minutes = parseInt(match[2], 10)
+      const period = match[3].toUpperCase()
+      
+      if (period === 'PM' && hours !== 12) {
+        hours += 12
+      } else if (period === 'AM' && hours === 12) {
+        hours = 0
+      }
+      
+      return { hours, minutes }
+    }
+    
+    // Obtener horarios del wedding_timeline
+    let startHours = 11
+    let startMinutes = 30
+    let endHours = 23
+    let endMinutes = 0
+    
+    if (weddingTimeline.value && weddingTimeline.value.length > 0) {
+      // Primer evento para hora de inicio
+      const firstEvent = weddingTimeline.value[0]
+      if (firstEvent?.time) {
+        const startTime = parseTime(firstEvent.time)
+        startHours = startTime.hours
+        startMinutes = startTime.minutes
+      }
+      
+      // Último evento para hora de fin
+      const lastEvent = weddingTimeline.value[weddingTimeline.value.length - 1]
+      if (lastEvent?.time) {
+        const endTime = parseTime(lastEvent.time)
+        endHours = endTime.hours
+        endMinutes = endTime.minutes
+      }
+    }
+    
     const startDateObj = new Date(eventDateLocal)
-    startDateObj.setHours(20, 0, 0, 0) // 8:00 PM hora local
+    startDateObj.setHours(startHours, startMinutes, 0, 0)
     
     const endDateObj = new Date(eventDateLocal)
-    endDateObj.setDate(endDateObj.getDate() + 1) // Día siguiente
-    endDateObj.setHours(2, 0, 0, 0) // 2:00 AM hora local
+    // Agregar 2 horas al último evento para dar tiempo de despedida y limpieza
+    let finalEndHours = endHours
+    let finalEndMinutes = endMinutes
+    
+    // Si al agregar horas se pasa de medianoche, mover al día siguiente
+    if (finalEndHours >= 24) {
+      endDateObj.setDate(endDateObj.getDate() + 1)
+      finalEndHours = finalEndHours % 24
+      // Si finalEndHours es 0, significa que es exactamente medianoche
+    }
+    
+    endDateObj.setHours(finalEndHours, finalEndMinutes, 0, 0)
 
     const formatDate = (date: Date): string => {
       const year = date.getFullYear()
@@ -1295,17 +1347,8 @@ const googleCalendarUrl = computed(() => {
     )
 
     let description = ''
-    if (invitation.value.invitation_message) {
-      description += invitation.value.invitation_message
-    }
-    if (invitation.value.bible_verse) {
-      description += `\n\n"${invitation.value.bible_verse}"`
-      if (invitation.value.bible_reference) {
-        description += ` - ${invitation.value.bible_reference}`
-      }
-    }
     if (invitation.value.venue) {
-      description += `\n\nLugar: ${invitation.value.venue}`
+      description += `Lugar: ${invitation.value.venue}`
     }
     if (invitation.value.religious_ceremony?.location) {
       description += `\n\nCeremonia: ${invitation.value.religious_ceremony.location}`
@@ -1323,9 +1366,7 @@ const googleCalendarUrl = computed(() => {
     const encodedDescription = encodeURIComponent(description)
 
     const location = encodeURIComponent(
-      invitation.value.venue ||
-      invitation.value.reception?.location ||
-      invitation.value.religious_ceremony?.location ||
+      invitation.value.religious_ceremony?.address ||
       ''
     )
 

@@ -2,17 +2,15 @@
     <slot />
 
     <!-- Copyright Start -->
-    <!-- <div class="container-fluid copyright py-4">
+    <div class="container-fluid copyright py-4">
         <div class="container">
             <div class="row g-4 align-items-center">
                 <div class="col-md-12 text-center mb-md-0">
-                    <span class="text-light">
-                        <a href="#"><i class="fas fa-copyright text-light me-2"></i>FestiWao</a>,
-                        Todos los derechos reservados.</span>
+                    <span class="text-light">Desarrollado por <a href="#">FestiWao</a></span>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- Copyright End -->
 
     <!-- Back to Top -->

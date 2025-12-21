@@ -470,12 +470,6 @@
               Agregar a Calendario
             </a>
           </div>
-          <div class="mt-4">
-            <small class="text-muted">
-              <i class="fas fa-info-circle me-1"></i>
-              Haz clic en "Confirmar Asistencia" para enviar un mensaje por WhatsApp
-            </small>
-          </div>
         </div>
       </div>
     </div>
@@ -497,9 +491,7 @@
       </div>
     </div>
   </div>
-
 </template>
-
 <style scoped>
 .music-player-container {
   position: fixed;

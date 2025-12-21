@@ -18,21 +18,29 @@
       "bible_reference": "Mateo 19:6",
       "invitation_message": "Con el amor que nos une, la bendición de Dios y el apoyo de nuestros padres, te invitamos a celebrar el día más especial de nuestras vidas.",
       "religious_ceremony": {
-        "location": "Iglesia San Pedro",
-        "address": "Calle Tarija y Av. América",
-        "maps_url": "https://maps.google.com/?q=Iglesia+San+Pedro"
+        "location": "Misión Internacional Casa de Oración",
+        "address": "Jr.Leoncio Prado 1200, Magdalena del Mar 15075",
+        "maps_url": "https://maps.app.goo.gl/BgLJaoEFfoSbGUBK9"
       },
       "reception": {
-        "location": "Jardín Padilla",
-        "address": "Calle Sucre y 16 de Julio",
-        "maps_url": "https://maps.google.com/?q=Jardín+Padilla"
+        "location": "",
+        "address": "Jr. Los Alamos 230, Lima 15023",
+        "maps_url": "https://maps.app.goo.gl/jjLjGTM5k56BPXJy6"
       },
       "dress_code": "Formal",
       "gifts": {
-        "transfer": {
-          "qr_code": "/assets/images/default-invitation.svg",
-          "info": "Banco: BBVA\nN° de cuenta: 0011-0814-0227324169\nCCI: 011-814-000227324169-11\nTitular: Angello"
-        },
+        "transfer": [
+          {
+            "bank": "BBVA",
+            "qr_code": "/assets/images/default-invitation.svg",
+            "info": "N° cuenta: 0011-0814-0227324169\nCCI: 011-814-000227324169-11\nTitular: Mayra Flores"
+          },
+          {
+            "bank": "BCP",
+            "qr_code": "/assets/images/default-invitation.svg",
+            "info": "N° cuenta: 19104395838039\nCCI: 002-191104395838039-55\nTitular: Angello Ferrari"
+          }
+        ],
         "registry": {
           "url": "https://www.amazon.com/wedding/guest-view/1Z1F5FUVHIHGW",
           "description": "Nuestra lista de regalos"
@@ -85,55 +93,48 @@
         {
           "id": "timeline-1",
           "title": "Ceremonia Religiosa",
-          "time": "11:00 AM",
+          "time": "11:30 AM",
           "description": "Ceremonia religiosa",
           "icon": "fa-church"
         },
         {
           "id": "timeline-2",
-          "title": "Sesión de Fotos",
-          "time": "12:00 PM",
-          "description": "Sesión de fotos",
+          "title": "Recepción",
+          "time": "2:30 PM",
+          "description": "Recepción",
           "icon": "fa-camera"
         },
         {
           "id": "timeline-3",
-          "title": "Cena",
-          "time": "1:00 PM",
-          "description": "Cena",
-          "icon": "fa-utensils"
-        },
-        {
-          "id": "timeline-4",
-          "title": "Torta",
-          "time": "3:00 PM",
-          "description": "Corte de torta",
-          "icon": "fa-birthday-cake"
-        },
-        {
-          "id": "timeline-5",
           "title": "Brindis",
           "time": "3:30 PM",
           "description": "Brindis",
           "icon": "fa-wine-glass"
         },
         {
-          "id": "timeline-6",
-          "title": "Primer Baile",
+          "id": "timeline-4",
+          "title": "Almuerzo",
+          "time": "4:00 PM",
+          "description": "Almuerzo",
+          "icon": "fa-utensils"
+        },
+        {
+          "id": "timeline-5",
+          "title": "Torta",
           "time": "5:00 PM",
-          "description": "Primer baile",
+          "description": "Corte de torta",
+          "icon": "fa-birthday-cake"
+        },
+        {
+          "id": "timeline-6",
+          "title": "Fiesta",
+          "time": "6:00 PM",
+          "description": "Fiesta",
           "icon": "fa-music"
         },
         {
           "id": "timeline-7",
-          "title": "Bocaditos",
-          "time": "7:00 PM",
-          "description": "Bocaditos",
-          "icon": "fa-drumstick-bite"
-        },
-        {
-          "id": "timeline-8",
-          "title": "Despedida",
+          "title": "Nos a descansar",
           "time": "11:00 PM",
           "description": "Despedida",
           "icon": "fa-star"
@@ -215,4 +216,3 @@
     }
   ]
 }
-

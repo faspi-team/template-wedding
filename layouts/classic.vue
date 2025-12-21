@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 useHead({
-    title: 'FestiWao - Invitaciones de Boda',
+    title: 'Mayra & Angello - Nuestra Boda',
     htmlAttrs: {
         lang: 'es'
     },

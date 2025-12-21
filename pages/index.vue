@@ -305,101 +305,18 @@
           <div class="dress-code-box p-5"
             :style="{ border: `1px solid rgba(107, 142, 90, 0.3)`, backgroundColor: 'white', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }">
             <div class="row g-4">
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <div class="dress-code-gender">
                   <div class="dress-code-icon mb-3">
-                    <i class="fas fa-user-tie" :style="{ color: primaryColor, fontSize: '2.5rem' }"></i>
-                  </div>
-                  <h4 class="dress-code-gender-title elegant-heading mb-3"
-                    :style="{ color: textColor, fontSize: '1.2rem' }">Caballeros</h4>
-                  <ul class="dress-code-list elegant-body"
-                    :style="{ color: textColor, fontSize: '1rem', textAlign: 'left', listStyle: 'none', padding: 0 }">
-                    <li v-if="invitation.dress_code.toLowerCase() === 'formal'" class="mb-2">
-                      <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
-                      Traje completo (saco y pantalón)
-                    </li>
-                    <li v-if="invitation.dress_code.toLowerCase() === 'formal'" class="mb-2">
-                      <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
-                      Camisa formal
-                    </li>
-                    <li v-if="invitation.dress_code.toLowerCase() === 'formal'" class="mb-2">
-                      <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
-                      Corbata o corbatín
-                    </li>
-                    <li v-if="invitation.dress_code.toLowerCase() === 'formal'" class="mb-2">
-                      <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
-                      Zapatos formales
-                    </li>
-                    <li
-                      v-if="invitation.dress_code.toLowerCase() === 'semi-formal' || invitation.dress_code.toLowerCase() === 'semi formal'"
-                      class="mb-2">
-                      <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
-                      Traje o blazer
-                    </li>
-                    <li
-                      v-if="invitation.dress_code.toLowerCase() === 'semi-formal' || invitation.dress_code.toLowerCase() === 'semi formal'"
-                      class="mb-2">
-                      <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
-                      Camisa de vestir
-                    </li>
-                    <li v-if="invitation.dress_code.toLowerCase() === 'casual'" class="mb-2">
-                      <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
-                      Pantalón de vestir
-                    </li>
-                    <li v-if="invitation.dress_code.toLowerCase() === 'casual'" class="mb-2">
-                      <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
-                      Camisa o polo
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <!-- Women's Dress Code -->
-              <div class="col-md-6">
-                <div class="dress-code-gender">
-                  <div class="dress-code-icon mb-3">
+                    <i class="fas fa-male" :style="{ color: primaryColor, fontSize: '2.5rem' }"></i>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <i class="fas fa-female" :style="{ color: primaryColor, fontSize: '2.5rem' }"></i>
                   </div>
                   <h4 class="dress-code-gender-title elegant-heading mb-3"
-                    :style="{ color: textColor, fontSize: '1.2rem' }">Damas</h4>
-                  <ul class="dress-code-list elegant-body"
-                    :style="{ color: textColor, fontSize: '1rem', textAlign: 'left', listStyle: 'none', padding: 0 }">
-                    <li v-if="invitation.dress_code.toLowerCase() === 'formal'" class="mb-2">
-                      <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
-                      Vestido largo o de cóctel
-                    </li>
-                    <li v-if="invitation.dress_code.toLowerCase() === 'formal'" class="mb-2">
-                      <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
-                      Elegante y sofisticado
-                    </li>
-                    <li v-if="invitation.dress_code.toLowerCase() === 'formal'" class="mb-2">
-                      <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
-                      Zapatos de tacón o flats elegantes
-                    </li>
-                    <li v-if="invitation.dress_code.toLowerCase() === 'formal'" class="mb-2">
-                      <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
-                      Accesorios discretos
-                    </li>
-                    <li
-                      v-if="invitation.dress_code.toLowerCase() === 'semi-formal' || invitation.dress_code.toLowerCase() === 'semi formal'"
-                      class="mb-2">
-                      <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
-                      Vestido de cóctel o elegante
-                    </li>
-                    <li
-                      v-if="invitation.dress_code.toLowerCase() === 'semi-formal' || invitation.dress_code.toLowerCase() === 'semi formal'"
-                      class="mb-2">
-                      <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
-                      Conjunto elegante
-                    </li>
-                    <li v-if="invitation.dress_code.toLowerCase() === 'casual'" class="mb-2">
-                      <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
-                      Vestido casual elegante
-                    </li>
-                    <li v-if="invitation.dress_code.toLowerCase() === 'casual'" class="mb-2">
-                      <i class="fas fa-check-circle me-2" :style="{ color: primaryColor, fontSize: '0.85rem' }"></i>
-                      Conjunto cómodo y elegante
-                    </li>
-                  </ul>
+                    :style="{ color: textColor, fontSize: '1.2rem' }">Caballeros & Damas</h4>
+                  <p class="elegant-body" :style="{ color: textColor, fontSize: '1rem' }">
+                    Le pedimos de favor a los invitados EVITAR el color blanco que es exclusivo para la novia.
+                  </p>
                 </div>
               </div>
             </div>
@@ -428,18 +345,14 @@
           </p>
           <div class="row g-4">
             <!-- Transfer Option -->
-            <div v-if="invitation.gifts.transfer" class="col-md-12">
+            <div v-for="(transfer, idx) in invitation.gifts.transfer"  class="col-md-6">
               <div class="p-4 rounded h-100"
                 :style="{ borderStyle: 'double', border: `10px solid ${primaryColor}40`, backgroundColor: 'white', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }">
-                <h4 class="mb-3 elegant-heading" :style="{ color: textColor, fontSize: '1.3rem' }">Transferencia</h4>
-                <div v-if="invitation.gifts.transfer.qr_code" class="mb-3">
-                  <img :src="invitation.gifts.transfer.qr_code" alt="QR Code" class="img-fluid"
-                    style="max-width: 200px;">
-                </div>
-                <div v-if="invitation.gifts.transfer.info" class="small" :style="{ color: textColor }">
-                  <p v-for="(line, idx) in invitation.gifts.transfer.info.split('\n')" :key="idx" class="mb-1">{{ line
-                  }}
-                  </p>
+                <h4 class="mb-3 elegant-heading" :style="{ color: textColor, fontSize: '1.3rem' }">Transferencia {{ transfer.bank }}</h4>
+                <div class="row">                  
+                  <div v-if="transfer.info" class="small" :style="{ color: textColor }">
+                    <p v-for="(line, idx) in transfer.info.split('\n')" :key="idx" class="mb-1">{{ line }}</p>
+                  </div>                  
                 </div>
               </div>
             </div>

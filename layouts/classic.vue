@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row g-4 align-items-center">
                 <div class="col-md-12 text-center mb-md-0">
-                    <span class="text-light">Desarrollado por <a href="#">FestiWao</a></span>
+                    <span class="text-light">Desarrollado por <a href="#">Aurora Guerra</a></span>
                 </div>
             </div>
         </div>
